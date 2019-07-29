@@ -1,5 +1,7 @@
 package ru.eltex;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 
 public class Manager extends User /*implements CSV */{
@@ -9,7 +11,18 @@ public class Manager extends User /*implements CSV */{
         this.name = name;
         this.phone = phone;
         this.id = id;
-        sales = new ArrayList<>();
+        this.sales = new ArrayList<>();
+    }
+
+    public Manager(@JsonProperty(value = "name")String name, @JsonProperty(value = "phone") Integer phone, @JsonProperty(value = "id") Short id, @JsonProperty(value = "sales") ArrayList<Sale> sales) {
+        this.name = name;
+        this.phone = phone;
+        this.id = id;
+        this.sales = sales;
+    }
+
+    public void setSales(ArrayList<Sale> sales) {
+        this.sales = sales;
     }
 
     public ArrayList<String> getSales() {

@@ -1,8 +1,11 @@
 package ru.eltex;
 
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.util.ArrayList;
 
-public class Main implements CSV{
+public class Application implements CSV{
 
     private static ArrayList<User> users = new ArrayList<>();
 
@@ -49,6 +52,16 @@ public class Main implements CSV{
         task1.setDescription("Начачаться к лету=D");
 
         task1.printTask();
+
+        Dump listForJSON = new Dump(users);
+        listForJSON.writeToJSON();
+
+        ArrayList<User> testForJSONUsers = new ArrayList<>();
+        testForJSONUsers = listForJSON.readToJSONFile();
+
+        for (User user : testForJSONUsers) {
+            System.out.println(user);
+        }
     }
 
     public static ArrayList<User> getUsers() {

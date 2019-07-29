@@ -5,6 +5,8 @@ public abstract class  User implements Comparable<User>{
     Integer phone;
     Short id;
 
+    public User() {
+    }
 
     public Integer getPhone() {
         return phone;

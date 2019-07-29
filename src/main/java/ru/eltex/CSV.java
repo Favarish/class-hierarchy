@@ -7,7 +7,7 @@ public interface CSV {
     static void writeToCSVFile(){
         String pathOut = "out.csv";
 
-        ArrayList<User> users = Main.getUsers();
+        ArrayList<User> users = Application.getUsers();
 
         try(FileWriter writer = new FileWriter( pathOut, false))
         {
