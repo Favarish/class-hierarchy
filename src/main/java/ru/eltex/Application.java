@@ -74,7 +74,7 @@ public class Application implements CSV {
 
 
         try {
-            connection = DriverManager.getConnection(DB_URL, "root", "Enrfrhzrhz427");
+            connection = DriverManager.getConnection(DB_URL, "user", "password");
             Statement statement = connection.createStatement();
 
             statement.executeUpdate("CREATE DATABASE IF NOT EXISTS user");
